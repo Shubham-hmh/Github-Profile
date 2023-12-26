@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Profile</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Github Profile Info</h1>
+
+        <form action="/getinfo" method="post">
+            <div class="form-group">
+                <label for="email">Github Email:</label>
+                <input type="email" name="email" class="form control" placeholder="Enter Github Email Id: ">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger btn-block">
+                    Get Information
+                </button>
+            </div>
+
+        </form>
+
+        <div id="result">
+            <%if(profile){%>
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Repo Url</th>
+                    <th>Profile Picture</th>
+                </tr>
+
+                <tbody>
+                    <tr>
+                        <td><%=profile.name%></td>
+                        <td><%=profile.repos_url%></td>
+                        <td><img width="100" height="100" class="img-thumbnail img-responsive" src="<%=profile.avatar_url%>" alt=""></td>
+
+                    </tr>
+                </tbody>
+            </thead>
+          </table>
+            <%}%>
+        </div>
+
+        <h1 class="text-center">Github Contribution-Graph Info</h1>
+
+        <form action="/contribution-graph" method="post">
+            <div class="form-group">
+                <label for="text">Github Username:</label>
+                <input type="text" name="userName" class="form control" placeholder="Enter Github Username: ">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger btn-block">
+                    Get Contribution Graph
+                </button>
+            </div>
+
+        </form>
+
+     
+        
+        
+    
+       
+    </div>
+</body>
+
+</html>
