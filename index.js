@@ -1,13 +1,13 @@
 const bodyParser = require("body-parser");
 const express= require("express");
 const github=require('github-profile');
-const { Chart } = require('chart.js');
 const dotenv=require('dotenv');
 const app =express();
 const axios = require('axios');
 dotenv.config();
 
 const TOKEN=process.env.GITHUB_TOKEN;
+const Port =process.env.PORT || 5000;
 const query = `
   query($userName: String!) {
     user(login: $userName) {
@@ -134,6 +134,6 @@ app.post('/getinfo',(req,res)=>{
 })
 
 
-app.listen(5000,()=>{
+app.listen(Port,()=>{
       console.log("server is listening on port :5000");
 })
